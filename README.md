@@ -13,11 +13,13 @@ Apply Dijkstra’s algorithm to compute optimal paths along water structures
 Generate vectorized output (paths/edges)
 📁 Repository Structure
 .
-├── main.py / script.py        # Main execution script (name may vary)
-├── utils/                     # Helper functions for image processing & graph building
-├── data/                      # Example raster inputs (if provided)
-├── output/                    # Generated vector outputs
+├── src/
+  └──rvr.py     # Main execution script (name may vary)
+  └──example_run.py  # Plug and play example
+├── raster/    # Input data needed (no masking needed)
+├── vector/    # Output data (vectorized river(s))
 └── README.md
+
 ⚙️ Requirements
 
 Make sure you have Python 3.8+ installed.
@@ -70,13 +72,13 @@ Used to compute optimal paths along water feature graphs based on edge weights.
 
 📊 Example Use Cases
 River network extraction
-Coastline vectorization
 Hydrological modeling
 Remote sensing analysis
 🛠️ Troubleshooting
 Module not found errors → Ensure all dependencies are installed
 Image not loading → Check file path and format
 No output generated → Verify input is binary or properly thresholded
+Feel free to contact the repo owner if there are any issues
 
 📦 Data Availability
 
