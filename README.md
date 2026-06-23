@@ -1,92 +1,72 @@
-This project implements a method for extracting and vectorizing environmental water features from raster images using graph-based algorithms, specifically Dijkstra’s shortest path algorithm and Depth-First Search (DFS).
+# Vectorization of Environmental Water Features from Raster Images: A Dijkstra and DFS Approach
 
-The goal is to convert raster representations (e.g., satellite or binary water masks) into structured vector paths representing water boundaries or networks.
+A Python project for vectorizing environmental water features from raster images using graph-based traversal methods, including Dijkstra’s algorithm and Depth-First Search (DFS).
 
-📌 Overview
+## Project Structure
 
-The workflow generally follows these steps:
-
-Load raster image (water mask or satellite-derived binary image)
-Convert image into a graph representation
-Apply DFS to explore connected components
-Apply Dijkstra’s algorithm to compute optimal paths along water structures
-Generate vectorized output (paths/edges)
-📁 Repository Structure
+```text
 .
+├── raster/
 ├── src/
-  └──rvr.py     # Main execution script (name may vary)
-  └──example_run.py  # Plug and play example
-├── raster/    # Input data needed (no masking needed)
-├── vector/    # Output data (vectorized river(s))
-└── README.md
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
 
-⚙️ Requirements
+## Files
 
-Make sure you have Python 3.8+ installed.
+- `src/` — source code for the vectorization workflow.
+- `raster/` — input raster data and/or generated raster examples.
+- `example_run.py` — example script as plug and play example.
+- `rvr.py` — main module for raster vectorization routines.
+- `requirements.txt` — Python dependencies.
+- `LICENSE` — license for the project.
 
-Install dependencies using:
+## Requirements
 
-pip install numpy opencv-python matplotlib networkx scipy
+Install the Python dependencies with:
 
-Depending on the implementation, you may also need:
+```bash
+pip install -r requirements.txt
+```
 
-pip install scikit-image
-🚀 How to Run
-Clone the repository:
-git clone https://github.com/Skarlatos/Vectorization-of-Environmental-Water-Features-from-Raster-Images-A-Dijkstra-and-DFS-Approach.git
-cd Vectorization-of-Environmental-Water-Features-from-Raster-Images-A-Dijkstra-and-DFS-Approach
-Run the main script:
-python main.py
+If the project uses a virtual environment, you can create one first:
 
-If the entry file has a different name (e.g., script.py or run.py), replace accordingly.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-🧾 Input Format
-Input images should be:
-Grayscale or binary raster images
-Water regions represented as foreground (e.g., white = 1)
-Background as 0
+## Usage
 
-Example:
+Run the example script to process a raster and generate vector output:
 
-0 0 1 1 0
-0 1 1 1 0
-0 0 1 0 0
-📤 Output
+```bash
+python example_run.py
+```
 
-The script produces:
+If you want to use the main module directly:
 
-Vectorized representation of water features
-Optional visualizations of:
-Graph structure
-DFS traversal
-Dijkstra shortest paths
-Output files saved in the output/ directory
-🧠 Algorithms Used
-DFS (Depth-First Search)
+```bash
+python rvr.py
+```
 
-Used to detect connected components in raster water regions.
+## Description
 
-Dijkstra’s Algorithm
+This repository implements a raster-to-vector workflow for detecting and tracing water features from image data. The approach combines shortest-path logic and depth-first traversal to follow connected structures and produce vector-like representations of environmental water bodies.
 
-Used to compute optimal paths along water feature graphs based on edge weights.
+## Input Data
 
-📊 Example Use Cases
-River network extraction
-Hydrological modeling
-Remote sensing analysis
-🛠️ Troubleshooting
-Module not found errors → Ensure all dependencies are installed
-Image not loading → Check file path and format
-No output generated → Verify input is binary or properly thresholded
-Feel free to contact the repo owner if there are any issues
+Place raster images inside the `raster/` folder or update the script paths to point to your local data.
 
-📦 Data Availability
+## Output
 
-The raster datasets used in this project are not included in this repository due to their size constraints.
+The project is expected to produce vectorized representations of water features, which may be saved as:
 
-Some input files exceed 25 MB, which is above the file size limit for GitHub repositories. For this reason, the data cannot be uploaded directly.
+- polylines,
+- GIS-compatible files, depending on the implementation.
 
-📩 Access to Data
+## License
 
-The data are available upon request.
-If you need access, please contact the repository owner.
+See the `LICENSE` file for license details.
